@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./sass/compiled.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+
+  <div id="app" :class="(theme_dark) ? 'theme--dark':'theme--light'">
+    <div class="main">
+
+      <div class="calculator-main" :class="(getNumber() == 420) ? 'on420':''">
+
+        <img src="img/420.png" class="img420 img420--left" alt="">
+        <img src="img/420.png" class="img420 img420--right" alt="">
+
+        <div class="calculator-screen">
+
+          <img src="img/elon.png" class="imgelon" alt="">
+
+          <div class="calculator-screen-top">
+            <h5 class="memory" v-if="memory !== '' && memory !== 0">Mem: <span>{{memory}}</span></h5>
+
+            <h5 class="theme-selector" @click="theme_dark = !theme_dark">
+              <ion-icon v-if="theme_dark" name="sunny"></ion-icon>
+              <ion-icon v-else name="moon"></ion-icon>
+            </h5>
+          </div>
+
+
+
+          <h4 v-if="displaySum.display">
+            {{displaySum.operand1}}
+            <span class="operator" v-html="operator_symbol(displaySum.operator)"></span>
+            {{displaySum.operand2}}
+          </h4>
+          <h4 v-else>&nbsp;</h4>
+          <h1>{{getNumber()}}</h1>
+
+        </div>
+
+        <div class="calculator-button-pad">
+
+          <div class="scientific-buttons" v-if="scientific_mode">
+            <div class="button-row" v-for="row in get_buttons(grid_w_scientific,scientific_buttons)">
+              <div v-for="button in row" :class="'btn ' + (operator==button.symbol ? 'btn-active ':'') + (button.type=='function'||button.type=='opfunction' ? 'btn-primary ':'') + (button.type=='operator' ? 'btn-danger ':'') + (button.type=='blank' ? 'btn-blank ':'')" v-html="operator_symbol(button.symbol)"
+                @click="clickButton(button)">
+              </div>
+            </div>
+          </div>
+
+          <div class="basic-buttons">
+            <div class="button-row" v-for="row in get_buttons(grid_w_basic,basic_buttons)">
+              <div v-for="button in row" :class="'btn ' + (operator==button.symbol ? 'btn-active ':'') + (button.type=='function'||button.type=='opfunction' ? 'btn-primary ':'') + (button.type=='operator' ? 'btn-danger ':'') + (button.type=='blank' ? 'btn-blank ':'')" v-html="operator_symbol(button.symbol)"
+                @click="clickButton(button)">
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="./script/index.js"></script>
+  <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+
+</html>

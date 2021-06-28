@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: #f4f2f3;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.calculator-main {
+  background-color: white;
+  color: gainsboro;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  overflow: hidden;
+  user-select: none;
+  box-shadow: 0 0 5px 1px;
+  position: relative;
+}
+.theme--dark .calculator-main {
+  background-color: #22252c;
+}
+.theme--dark .calculator-main {
+  color: #b4b4b4;
+}
+
+.calculator-screen {
+  padding: 20px;
+  text-align: right;
+  position: relative;
+}
+.calculator-screen h1 {
+  color: #2a2d35;
+  user-select: text;
+}
+.theme--dark .calculator-screen h1 {
+  color: white;
+}
+.calculator-screen h4 {
+  color: #2a2d35;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+.theme--dark .calculator-screen h4 {
+  color: white;
+}
+.calculator-screen h4 .operator {
+  color: #e5807d;
+  margin: 0 3px;
+}
+.theme--dark .calculator-screen h4 .operator {
+  color: #e5807d;
+}
+.calculator-screen h4 .operator ion-icon {
+  position: relative;
+  top: 1.5px;
+}
+
+.calculator-button-pad {
+  background-color: #efefef;
+  border-radius: 15px;
+  display: flex;
+}
+.theme--dark .calculator-button-pad {
+  background-color: #2a2d35;
+}
+.calculator-button-pad .basic-buttons,
+.calculator-button-pad .scientific-buttons {
+  padding: 20px;
+}
+.calculator-button-pad .button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.btn {
+  background-color: white;
+  color: #2a2d35;
+  border-radius: 10px;
+  font-weight: 500;
+  text-align: center;
+  width: 55px;
+  height: 55px;
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: filter 0.2s;
+  cursor: pointer;
+}
+.theme--dark .btn {
+  background-color: #22252c;
+}
+.theme--dark .btn {
+  color: white;
+}
+.btn-active, .btn:hover {
+  filter: drop-shadow(0px 0px 2px);
+}
+.btn ion-icon {
+  margin-left: auto;
+  margin-right: auto;
+  --ionicon-stroke-width: 64px;
+}
+.btn-plussize {
+  font-size: 1.2em;
+}
+.theme--light .btn-primary {
+  background-color: #6fcf97;
+  color: white;
+}
+.theme--dark .theme--light .btn-primary {
+  background-color: #76f4d4;
+}
+.theme--dark .theme--light .btn-primary {
+  color: #22252c;
+}
+.theme--light .btn-danger {
+  background-color: #e5807d;
+  color: white;
+}
+.theme--dark .theme--light .btn-danger {
+  background-color: #e5807d;
+}
+.theme--dark .theme--light .btn-danger {
+  color: #22252c;
+}
+.btn-primary {
+  color: #6fcf97;
+}
+.theme--dark .btn-primary {
+  color: #76f4d4;
+}
+.btn-danger {
+  color: #e5807d;
+}
+.theme--dark .btn-danger {
+  color: #e5807d;
+}
+.btn-blank:hover {
+  filter: drop-shadow(0px 0px 0px);
+  cursor: default;
+}
+
+sup {
+  font-size: 0.8em;
+  padding-left: 2px;
+}
+
+.calculator-screen-top {
+  display: flex;
+  text-align: left;
+  padding-bottom: 30px;
+}
+
+h5.theme-selector {
+  margin-left: auto;
+  color: #2a2d35;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.theme--dark h5.theme-selector {
+  color: white;
+}
+h5.theme-selector:hover {
+  opacity: 0.9;
+}
+
+h5.memory {
+  font-weight: 300;
+  color: #6fcf97;
+}
+.theme--dark h5.memory {
+  color: #76f4d4;
+}
+h5.memory span {
+  color: #2a2d35;
+}
+.theme--dark h5.memory span {
+  color: white;
+}
+
+.img420 {
+  transition: transform 1s;
+  width: 160px;
+  position: absolute;
+  transform-origin: 50% 100%;
+}
+.img420--left {
+  top: 0;
+  left: -80px;
+  transform: rotate(-90deg);
+}
+.on420 .img420--left {
+  transform: rotate(90deg);
+}
+.img420--right {
+  top: 250px;
+  right: -80px;
+  transform: rotate(90deg);
+}
+.on420 .img420--right {
+  transform: rotate(-90deg);
+}
+
+.imgelon {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 100px;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 1s;
+}
+.on420 .imgelon {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=compiled.css.map */

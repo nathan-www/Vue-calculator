@@ -1,0 +1,38 @@
+@use "sass:color";
+
+$themes: (
+
+  "light": (
+    "bg": rgb(255,255,255),
+    "bg-secondary": rgb(239,239,239),
+    "success": rgb(111, 207, 151),
+    "danger": rgb(229, 128, 125),
+    "text-primary": rgb(42,45,53),
+    "shadow": rgb(220,220,220)
+  ),
+
+  "dark":(
+    "bg": rgb(34,37,44),
+    "bg-secondary": rgb(42,45,53),
+    "success": rgb(118,244,212),
+    "danger": rgb(229, 128, 125),
+    "text-primary": rgb(255, 255, 255),
+    "shadow": rgb(180,180,180)
+
+  )
+
+);
+
+
+@mixin theme($prop,$var,$opacity:1){
+
+  $dark: map-get($themes,'dark');
+  $light: map-get($themes,'light');
+
+  #{$prop}: change-color(map-get($light,$var),$alpha:$opacity);
+
+  .theme--dark & {
+    #{$prop}: change-color(map-get($dark,$var),$alpha:$opacity);
+  }
+
+}

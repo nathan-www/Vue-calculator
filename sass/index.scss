@@ -1,0 +1,192 @@
+@use "./theme.scss" as *;
+@use "./mixins.scss" as *;
+
+body {
+  background-color: rgb(244,242,243);
+}
+
+.main {
+  @include vCenter;
+  height: 100vh;
+}
+
+.calculator-main {
+  @include theme('background-color',"bg");
+  @include theme('color',"shadow");
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  overflow: hidden;
+  user-select: none;
+  box-shadow: 0 0 5px 1px;
+  position: relative;
+}
+
+.calculator-screen {
+  padding: 20px;
+  text-align: right;
+  position: relative;
+
+  h1 {
+    @include theme('color',"text-primary");
+    user-select: text;
+  }
+
+  h4 {
+    @include theme('color',"text-primary");
+    font-weight: 400;
+    margin-bottom: 5px;
+
+    .operator {
+      @include theme('color',"danger");
+      margin: 0 3px;
+
+      ion-icon {
+        position: relative;
+        top: 1.5px;
+      }
+    }
+  }
+}
+
+.calculator-button-pad {
+  @include theme('background-color',"bg-secondary");
+  border-radius: 15px;
+  display: flex;
+
+  .basic-buttons,
+  .scientific-buttons {
+    padding: 20px;
+  }
+
+  .button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.btn {
+  @include theme('background-color',"bg");
+  @include theme('color',"text-primary");
+  border-radius: 10px;
+  font-weight: 500;
+  text-align: center;
+  width: 55px;
+  height: 55px;
+  margin: 8px;
+  @include vCenter;
+  transition: filter 0.2s;
+  cursor: pointer;
+
+  &-active,
+  &:hover {
+    filter: drop-shadow(0px 0px 2px);
+  }
+
+  & ion-icon {
+    margin-left: auto;
+    margin-right: auto;
+    --ionicon-stroke-width: 64px;
+  }
+
+  &-plussize {
+    font-size: 1.2em;
+  }
+
+  .theme--light &-primary {
+    @include theme('background-color',"success");
+    @include theme('color',"bg");
+  }
+
+  .theme--light &-danger {
+    @include theme('background-color',"danger");
+    @include theme('color',"bg");
+  }
+
+  &-primary {
+    @include theme('color',"success");
+  }
+
+  &-danger {
+    @include theme('color',"danger");
+  }
+
+  &-blank:hover {
+    filter: drop-shadow(0px 0px 0px);
+    cursor: default;
+  }
+}
+
+sup {
+  font-size: 0.8em;
+  padding-left: 2px;
+}
+
+.calculator-screen-top {
+  display: flex;
+  text-align: left;
+  padding-bottom: 30px;
+}
+
+h5.theme-selector {
+  margin-left: auto;
+  @include theme('color','text-primary');
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+h5.memory {
+  font-weight: 300;
+  @include theme('color','success');
+
+  span {
+    @include theme('color','text-primary');
+  }
+}
+
+.img420 {
+  transition: transform 1s;
+  width: 160px;
+  position: absolute;
+
+  &--left {
+    top: 0;
+    left: -80px;
+    transform: rotate(-90deg);
+
+    .on420 & {
+      transform: rotate(90deg);
+    }
+  }
+
+  &--right {
+    top: 250px;
+    right: -80px;
+    transform: rotate(90deg);
+
+    .on420 & {
+      transform: rotate(-90deg);
+    }
+  }
+  transform-origin: 50% 100%;
+}
+
+.imgelon {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 100px;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 1s;
+
+  .on420 &{
+    opacity: 1;
+  }
+}
