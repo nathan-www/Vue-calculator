@@ -1,2 +1,2 @@
-#Calculator web app built with VueJS and SASS
+## Calculator web app built with VueJS and SASS
 
